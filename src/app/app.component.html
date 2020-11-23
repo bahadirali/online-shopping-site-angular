@@ -1,9 +1,14 @@
-<div>
-  <input [(ngModel)]="searchKeyword">
-  <button (click)="searchClicked()">Search</button>
+<div class="container" *ngIf="auth.isLoading$ | async; else loaded">
+  Loading...
 </div>
-<div class="product-set">
-  <div *ngFor="let prod of products" class="product-wrapper-div">
-    <product [prod]="prod"></product>
-  </div>
-</div>
+
+<ng-template #loaded>
+  <login-button *ngIf="(auth.isAuthenticated$ | async) === false">
+  </login-button>
+
+  <div *ngIf="auth.isAuthenticated$ | async">
+    <logout-button>
+    </logout-button>
+    <router-outlet></router-outlet>
+  </div>  
+</ng-template>

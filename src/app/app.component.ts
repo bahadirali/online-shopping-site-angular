@@ -1,5 +1,6 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
 import { IProduct } from './interfaces/IProduct';
 import { CommonService } from './services/common.service';
 
@@ -10,17 +11,6 @@ import { CommonService } from './services/common.service';
 })
 export class AppComponent {
   title = 'online-shopping-site-angular';
-  searchKeyword = '';
-  products: IProduct[] = [];
 
-  constructor(private commonService: CommonService){}
-
-  searchClicked() {
-    this.commonService.searchForProducts(this.searchKeyword).subscribe(data => {
-        console.log(data);
-        this.products = data;        
-    }, err => {
-        console.error(err);
-    });
-  }
+  constructor(public auth: AuthService){}
 }
