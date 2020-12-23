@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
 
   searchClicked() {
     this.commonService.searchForProducts(this.searchKeyword).subscribe(data => {
-        console.log(data);
         this.products = data;        
     }, err => {
         console.error(err);

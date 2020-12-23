@@ -1,0 +1,11 @@
+@import '../../../assets/colors.scss';
+
+.product-component {
+    mat-card {
+        box-shadow: none !important;
+        border: 1px solid $border-faded-grey;
+        .mat-card-image {
+            height: 100px;
+        }
+    }
+}

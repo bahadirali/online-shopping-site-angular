@@ -1,8 +1,12 @@
-<div>
-    <input [(ngModel)]="searchKeyword">
-    <button (click)="searchClicked()">Search</button>
-  </div>
-  <div class="product-set">
+<div class="search-div d-flex align-items-center ms-4 mb-2"> 
+    <mat-form-field>
+      <mat-label>search for a product</mat-label>
+      <input matInput type="text" [(ngModel)]="searchKeyword" (keyup.enter)="searchClicked()">
+    </mat-form-field>
+
+    <button (click)="searchClicked()" class="btn btn-primary btn-block ms-3">Search</button>
+</div>
+<div class="product-set px-4">
     <div *ngFor="let prod of products" class="product-wrapper-div">
       <product [prod]="prod"></product>
     </div>

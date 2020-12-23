@@ -3,12 +3,9 @@
 </div>
 
 <ng-template #loaded>
-  <login-button *ngIf="(auth.isAuthenticated$ | async) === false">
-  </login-button>
-
-  <div *ngIf="auth.isAuthenticated$ | async">
-    <logout-button>
-    </logout-button>
+  <topnav [isAuthenticated]="auth.isAuthenticated$ | async"></topnav>
+  
+  <div *ngIf="auth.isAuthenticated$ | async">    
     <router-outlet></router-outlet>
   </div>  
 </ng-template>
