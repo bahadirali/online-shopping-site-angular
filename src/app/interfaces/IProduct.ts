@@ -3,5 +3,7 @@ export interface IProduct {
     name: string,
     sellerName: string,
     description: string,
-    productImagePath: string
+    productImagePath: string,
+    signedUrl: string,
+    boughtByMe: boolean
 }

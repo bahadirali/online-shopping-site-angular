@@ -1,8 +1,12 @@
-<div class="topnav d-flex p-4 mb-4">
+<div class="topnav d-flex justify-content-end p-4 mb-4">
 
     <login-button *ngIf="!isAuthenticated" class="ms-auto">
     </login-button>
     
-    <logout-button *ngIf="isAuthenticated" class="ms-auto">
-    </logout-button>
+    <ng-container *ngIf="isAuthenticated">
+        <button class="btn btn-primary btn-block" (click)="showHome()">Home</button>
+        <button class="btn btn-secondary btn-block ms-3" (click)="showMyProfile()">My Profile</button>
+        <logout-button class="ms-3">
+        </logout-button>
+    </ng-container>    
 </div>

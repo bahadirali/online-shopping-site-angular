@@ -1,1 +1,8 @@
-<p>profile works!</p>
+<h1 *ngIf="products.length > 0" class="px-4 pb-4">Items you bought</h1>
+<h1 *ngIf="products.length == 0" class="px-4 pb-4">You did not buy any items yet</h1>
+
+<div class="product-set px-4">
+    <div *ngFor="let prod of products" class="product-wrapper-div">
+      <product [prod]="prod"></product>
+    </div>
+</div>

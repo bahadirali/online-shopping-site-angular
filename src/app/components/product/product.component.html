@@ -1,19 +1,18 @@
 <div class="product-component">
     <mat-card>
         <mat-card-header>
-            <div mat-card-avatar style="background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');background-size: cover;"></div>
-            <mat-card-title>{{prod.name}}</mat-card-title>
-            <mat-card-subtitle>{{prod.sellerName}}</mat-card-subtitle>
+            <mat-card-title class="">{{prod.name}}</mat-card-title>
+            <mat-card-subtitle><i>from: </i>{{prod.sellerName}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image [src]="'http://localhost:8080/images/' + prod.productImagePath" [alt]="prod.productImagePath">
-        <mat-card-content>
-            <p>
+        <img mat-card-image class="my-3" [src]="prod.signedUrl" [alt]="prod.productImagePath">        
+        <mat-card-content>            
+            <p class="text-center">
                 {{prod.description}}
             </p>
         </mat-card-content>
-        <mat-card-actions>
-            <button mat-button color="primary">Add to Cart</button>
-            <button mat-button color="accent">Add to List</button>
+        <mat-card-actions class="d-flex justify-content-center">
+            <button *ngIf="!prod.boughtByMe" mat-button color="primary" (click)="buyProduct()">Buy</button>
+            <button *ngIf="prod.boughtByMe" mat-button color="warn" (click)="returnProduct()">Return the Item</button>
         </mat-card-actions>
     </mat-card>    
 </div>
